@@ -1,0 +1,12 @@
+/* Decorative 3D stage shared by the real access pages and the offline preview. */
+.hb-scene{position:relative;isolation:isolate;width:100%;height:390px;min-width:0;overflow:hidden;contain:layout paint;user-select:none}
+.hb-scene::before{content:"";position:absolute;inset:7% 6% 15%;background:radial-gradient(ellipse at 50% 45%,#a88b2122,transparent 63%);filter:blur(12px);z-index:-1}
+.hb-scene::after{content:"";position:absolute;width:44%;height:5%;bottom:10%;left:28%;background:#000;filter:blur(12px);border-radius:50%;opacity:.8;z-index:-1}
+.hb-scene-canvas{display:block;width:100%;height:100%;position:absolute;inset:0;opacity:0;transition:opacity .4s ease}
+.hb-scene[data-scene-state=ready] .hb-scene-canvas{opacity:1}
+.hb-scene-fallback{width:155px;height:200px;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-8deg);background:linear-gradient(125deg,#fff1a5 0%,#b68c28 18%,#f2d36f 38%,#6c4d13 75%,#ddbb5a);clip-path:polygon(50% 0,100% 18%,88% 72%,50% 100%,12% 72%,0 18%);filter:drop-shadow(12px 17px 0 #584016);display:grid;place-items:center;color:#19170d;font:700 66px var(--font-display,"Arial Narrow",sans-serif);letter-spacing:-.09em;padding-right:7px}
+.hb-scene[data-scene-state=ready] .hb-scene-fallback{display:none}
+.hb-scene-orbit{position:absolute;left:13%;right:13%;height:14%;bottom:3%;border:1px solid #baa65e30;border-radius:50%;transform:rotate(-7deg);pointer-events:none}
+.hb-scene-orbit::before{content:"";position:absolute;inset:7px 12%;border:1px solid #baa65e15;border-radius:50%}
+.hb-scene-caption{position:absolute;bottom:0;left:0;right:0;text-align:center;font:8px var(--font-mono,monospace);letter-spacing:.22em;color:#9e956f;pointer-events:none}
+@media(prefers-reduced-motion:reduce){.hb-scene-canvas{transition:none}}
